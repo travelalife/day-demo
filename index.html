@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>日期</title>
+  </head>
+  <style>
+
+    .month-grid {
+      margin: 0 auto;
+    }
+
+    .weekday-header {
+      display: flex;
+    }
+
+    .grid-item {
+      width: 14vw;
+      height: 14vw;
+      text-align: center;
+      line-height: 14vw;
+    }
+  </style>
+  <body>
+  <div class="month-grid">
+    <div class="weekday-header">
+      <div class="grid-item">一</div>
+      <div class="grid-item">二</div>
+      <div class="grid-item">三</div>
+      <div class="grid-item">四</div>
+      <div class="grid-item">五</div>
+      <div class="grid-item">六</div>
+      <div class="grid-item">日</div>
+    </div>
+  </div>
+  </body>
+  <script>
+    const $date = new Date();
+
+    const weekdayArr = ['天', '一', '二', '三', '四', '五', '六'];
+
+    const date = $date.getDate();
+    const year = $date.getFullYear()
+    const month = $date.getMonth()
+    const weekday = $date.getDay()
+    const hours = $date.getHours()
+    const minutes = $date.getMinutes()
+    const seconds = $date.getSeconds()
+    const milliseconds = $date.getMilliseconds()
+    const timestamp = $date.getTime()
+
+    function format() {
+      const result = year + '年' + (month + 1) + '月' + date + '日' + ' ' +
+              '星期' + weekdayArr[weekday] + ' ' +
+              hours + '时' + minutes + '分' + seconds + '秒' + milliseconds + '毫秒';
+
+      console.log(result);
+    }
+
+    format()
+
+    function daysOfTheMonth(year, month) {
+      const date = new Date(year, month);
+      date.setDate(0);
+      return date.getDate();
+    }
+  </script>
+</html>
